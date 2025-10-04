@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Pembelajaran Kewirausahaan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-option {
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            background-color: #e0e7ff;
+            transform: translateX(5px);
+        }
+        
+        .quiz-option.selected {
+            background-color: #3b82f6;
+            color: white;
+        }
+        
+        .quiz-option.correct {
+            background-color: #10b981;
+            color: white;
+        }
+        
+        .quiz-option.incorrect {
+            background-color: #ef4444;
+            color: white;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl font-bold mb-2">🚀 Media Pembelajaran Kewirausahaan</h1>
+            <p class="text-xl opacity-90">Untuk Siswa Kelas XI TKJ</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center space-x-8 py-4">
+                <button onclick="showSection('materi')" class="nav-btn px-6 py-2 rounded-full bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors">
+                    📚 Materi
+                </button>
+                <button onclick="showSection('kuis')" class="nav-btn px-6 py-2 rounded-full bg-gray-200 text-gray-700 font-semibold hover:bg-gray-300 transition-colors">
+                    🧠 Kuis
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Materi Section -->
+        <section id="materi" class="section-content">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Materi Kewirausahaan</h2>
+                <p class="text-lg text-gray-600">Pelajari konsep dasar kewirausahaan dan cara memulai bisnis</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <!-- Card 1: Pengertian Kewirausahaan -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="mb-4">
+                        <svg width="80" height="80" viewBox="0 0 100 100" class="mx-auto">
+                            <defs>
+                                <linearGradient id="bulbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Light bulb -->
+                            <circle cx="50" cy="35" r="20" fill="url(#bulbGradient)" stroke="#d97706" stroke-width="2"/>
+                            <rect x="45" y="50" width="10" height="8" fill="#6b7280" rx="2"/>
+                            <rect x="43" y="58" width="14" height="4" fill="#374151" rx="2"/>
+                            <!-- Light rays -->
+                            <line x1="20" y1="35" x2="25" y2="35" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+                            <line x1="75" y1="35" x2="80" y2="35" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+                            <line x1="35" y1="15" x2="38" y2="18" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+                            <line x1="62" y1="18" x2="65" y2="15" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+                            <line x1="35" y1="55" x2="38" y2="52" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+                            <line x1="62" y1="52" x2="65" y2="55" stroke="#fbbf24" stroke-width="3" stroke-linecap="round"/>
+                            <!-- Brain inside bulb -->
+                            <path d="M42 30 Q45 25 50 30 Q55 25 58 30 Q58 35 55 40 Q50 42 45 40 Q42 35 42 30" fill="#ef4444" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Pengertian Kewirausahaan</h3>
+                    <p class="text-gray-600 mb-4">Kewirausahaan adalah kemampuan menciptakan sesuatu yang baru dan berbeda melalui pemikiran kreatif dan tindakan inovatif untuk menciptakan peluang.</p>
+                    <button onclick="showDetail('pengertian')" class="text-blue-500 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut →</button>
+                </div>
+
+                <!-- Card 2: Karakteristik Wirausaha -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="mb-4">
+                        <svg width="80" height="80" viewBox="0 0 100 100" class="mx-auto">
+                            <defs>
+                                <linearGradient id="starGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Person silhouette -->
+                            <circle cx="50" cy="25" r="12" fill="url(#starGradient)"/>
+                            <path d="M35 40 Q50 35 65 40 L65 75 Q50 80 35 75 Z" fill="url(#starGradient)"/>
+                            <!-- Stars around person -->
+                            <polygon points="20,20 22,26 28,26 23,30 25,36 20,32 15,36 17,30 12,26 18,26" fill="#fbbf24"/>
+                            <polygon points="80,25 81,28 84,28 82,30 83,33 80,31 77,33 78,30 76,28 79,28" fill="#fbbf24"/>
+                            <polygon points="25,60 26,63 29,63 27,65 28,68 25,66 22,68 23,65 21,63 24,63" fill="#fbbf24"/>
+                            <polygon points="75,55 76,58 79,58 77,60 78,63 75,61 72,63 73,60 71,58 74,58" fill="#fbbf24"/>
+                            <!-- Achievement badge -->
+                            <circle cx="70" cy="70" r="8" fill="#10b981"/>
+                            <path d="M66 70 L69 73 L74 67" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Karakteristik Wirausaha</h3>
+                    <p class="text-gray-600 mb-4">Seorang wirausaha memiliki sifat-sifat khusus seperti kreatif, inovatif, berani mengambil risiko, dan pantang menyerah.</p>
+                    <button onclick="showDetail('karakteristik')" class="text-blue-500 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut →</button>
+                </div>
+
+                <!-- Card 3: Peluang Usaha -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="mb-4">
+                        <svg width="80" height="80" viewBox="0 0 100 100" class="mx-auto">
+                            <defs>
+                                <linearGradient id="targetGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Target circles -->
+                            <circle cx="50" cy="50" r="30" fill="none" stroke="#ef4444" stroke-width="3"/>
+                            <circle cx="50" cy="50" r="20" fill="none" stroke="#f97316" stroke-width="3"/>
+                            <circle cx="50" cy="50" r="10" fill="url(#targetGradient)"/>
+                            <!-- Arrow -->
+                            <path d="M15 25 L45 45 L40 50 L50 50 L40 50 L45 55 L15 75" fill="#10b981" stroke="#059669" stroke-width="2"/>
+                            <!-- Opportunity symbols -->
+                            <circle cx="75" cy="20" r="3" fill="#fbbf24"/>
+                            <circle cx="85" cy="30" r="2" fill="#fbbf24"/>
+                            <circle cx="80" cy="75" r="3" fill="#fbbf24"/>
+                            <circle cx="20" cy="80" r="2" fill="#fbbf24"/>
+                            <!-- Dollar sign in center -->
+                            <text x="50" y="55" text-anchor="middle" fill="white" font-size="12" font-weight="bold">$</text>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Peluang Usaha</h3>
+                    <p class="text-gray-600 mb-4">Peluang usaha adalah kesempatan yang dapat dimanfaatkan untuk memulai atau mengembangkan bisnis yang menguntungkan.</p>
+                    <button onclick="showDetail('peluang')" class="text-blue-500 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut →</button>
+                </div>
+
+                <!-- Card 4: Rencana Bisnis -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="mb-4">
+                        <svg width="80" height="80" viewBox="0 0 100 100" class="mx-auto">
+                            <defs>
+                                <linearGradient id="planGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Clipboard -->
+                            <rect x="25" y="15" width="50" height="70" fill="url(#planGradient)" rx="5"/>
+                            <rect x="30" y="20" width="40" height="60" fill="white" rx="3"/>
+                            <!-- Clip -->
+                            <rect x="40" y="10" width="20" height="8" fill="#6b7280" rx="4"/>
+                            <!-- Document lines -->
+                            <line x1="35" y1="30" x2="60" y2="30" stroke="#3b82f6" stroke-width="2"/>
+                            <line x1="35" y1="38" x2="65" y2="38" stroke="#6b7280" stroke-width="1"/>
+                            <line x1="35" y1="44" x2="55" y2="44" stroke="#6b7280" stroke-width="1"/>
+                            <line x1="35" y1="50" x2="65" y2="50" stroke="#6b7280" stroke-width="1"/>
+                            <!-- Chart -->
+                            <rect x="35" y="55" width="30" height="20" fill="#f3f4f6" stroke="#d1d5db"/>
+                            <rect x="38" y="65" width="4" height="8" fill="#10b981"/>
+                            <rect x="44" y="60" width="4" height="13" fill="#3b82f6"/>
+                            <rect x="50" y="58" width="4" height="15" fill="#f59e0b"/>
+                            <rect x="56" y="62" width="4" height="11" fill="#ef4444"/>
+                            <!-- Checkmark -->
+                            <circle cx="75" cy="25" r="8" fill="#10b981"/>
+                            <path d="M71 25 L74 28 L79 22" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Rencana Bisnis</h3>
+                    <p class="text-gray-600 mb-4">Rencana bisnis adalah dokumen tertulis yang menjelaskan secara rinci bagaimana bisnis akan dijalankan dan dikembangkan.</p>
+                    <button onclick="showDetail('rencana')" class="text-blue-500 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut →</button>
+                </div>
+
+                <!-- Card 5: Modal Usaha -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="mb-4">
+                        <svg width="80" height="80" viewBox="0 0 100 100" class="mx-auto">
+                            <defs>
+                                <linearGradient id="moneyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#059669;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Money bag -->
+                            <path d="M35 35 Q35 25 50 25 Q65 25 65 35 L65 70 Q65 80 50 80 Q35 80 35 70 Z" fill="url(#moneyGradient)"/>
+                            <!-- Bag tie -->
+                            <rect x="45" y="25" width="10" height="8" fill="#065f46" rx="2"/>
+                            <line x1="40" y1="30" x2="45" y2="25" stroke="#065f46" stroke-width="2"/>
+                            <line x1="60" y1="30" x2="55" y2="25" stroke="#065f46" stroke-width="2"/>
+                            <!-- Dollar sign -->
+                            <text x="50" y="58" text-anchor="middle" fill="white" font-size="20" font-weight="bold">$</text>
+                            <!-- Coins -->
+                            <circle cx="75" cy="40" r="8" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+                            <text x="75" y="44" text-anchor="middle" fill="#d97706" font-size="8" font-weight="bold">$</text>
+                            <circle cx="25" cy="50" r="6" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+                            <text x="25" y="53" text-anchor="middle" fill="#d97706" font-size="6" font-weight="bold">$</text>
+                            <circle cx="80" cy="65" r="5" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+                            <!-- Bills -->
+                            <rect x="15" y="70" width="20" height="12" fill="#16a34a" rx="2"/>
+                            <rect x="17" y="72" width="16" height="8" fill="#22c55e" rx="1"/>
+                            <text x="25" y="78" text-anchor="middle" fill="white" font-size="6">$100</text>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Modal Usaha</h3>
+                    <p class="text-gray-600 mb-4">Modal usaha adalah dana atau aset yang diperlukan untuk memulai dan menjalankan suatu bisnis atau usaha.</p>
+                    <button onclick="showDetail('modal')" class="text-blue-500 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut →</button>
+                </div>
+
+                <!-- Card 6: Strategi Pemasaran -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="mb-4">
+                        <svg width="80" height="80" viewBox="0 0 100 100" class="mx-auto">
+                            <defs>
+                                <linearGradient id="chartGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+                                </linearGradient>
+                            </defs>
+                            <!-- Chart background -->
+                            <rect x="20" y="20" width="60" height="50" fill="white" stroke="#d1d5db" stroke-width="2" rx="5"/>
+                            <!-- Chart bars -->
+                            <rect x="25" y="50" width="8" height="15" fill="#3b82f6"/>
+                            <rect x="35" y="45" width="8" height="20" fill="#10b981"/>
+                            <rect x="45" y="35" width="8" height="30" fill="url(#chartGradient)"/>
+                            <rect x="55" y="40" width="8" height="25" fill="#8b5cf6"/>
+                            <rect x="65" y="30" width="8" height="35" fill="#ef4444"/>
+                            <!-- Arrow pointing up -->
+                            <path d="M75 25 L85 15 L95 25 L90 25 L90 35 L80 35 L80 25 Z" fill="#10b981"/>
+                            <!-- Marketing symbols -->
+                            <circle cx="15" cy="15" r="5" fill="#fbbf24"/>
+                            <text x="15" y="18" text-anchor="middle" fill="white" font-size="6" font-weight="bold">@</text>
+                            <circle cx="85" cy="75" r="4" fill="#3b82f6"/>
+                            <text x="85" y="78" text-anchor="middle" fill="white" font-size="5" font-weight="bold">f</text>
+                            <!-- Megaphone -->
+                            <path d="M10 75 L25 70 L25 80 Z" fill="#ef4444"/>
+                            <circle cx="8" cy="75" r="3" fill="#dc2626"/>
+                            <path d="M25 72 Q30 70 30 75 Q30 80 25 78" fill="#fbbf24"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Strategi Pemasaran</h3>
+                    <p class="text-gray-600 mb-4">Strategi pemasaran adalah rencana untuk mempromosikan dan menjual produk atau jasa kepada target konsumen.</p>
+                    <button onclick="showDetail('pemasaran')" class="text-blue-500 font-semibold hover:text-blue-700">Pelajari Lebih Lanjut →</button>
+                </div>
+            </div>
+
+            <!-- Detail Modal -->
+            <div id="detailModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
+                <div class="bg-white rounded-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 id="detailTitle" class="text-2xl font-bold text-gray-800"></h3>
+                            <button onclick="closeDetail()" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+                        </div>
+                        <div id="detailContent" class="text-gray-600 leading-relaxed"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kuis Section -->
+        <section id="kuis" class="section-content hidden">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">🧠 Kuis Kewirausahaan</h2>
+                <p class="text-lg text-gray-600">Uji pemahaman Anda tentang materi kewirausahaan</p>
+                <div class="mt-4 space-x-4">
+                    <button onclick="showQuizMode()" class="px-6 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                        🎯 Mulai Kuis
+                    </button>
+                    <button onclick="showAddQuestion()" class="px-6 py-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                        ➕ Tambah Soal
+                    </button>
+                    <button onclick="showManageQuestions()" class="px-6 py-2 bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-600 transition-colors">
+                        📝 Kelola Soal
+                    </button>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-sm font-semibold text-gray-600">Progress Kuis</span>
+                    <span id="progressText" class="text-sm font-semibold text-gray-600">0/10</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3">
+                    <div id="progressBar" class="progress-bar bg-blue-500 h-3 rounded-full" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Add Question Form -->
+            <div id="addQuestionContainer" class="bg-white rounded-xl shadow-lg p-8 hidden">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">➕ Tambah Soal Baru</h3>
+                <form id="addQuestionForm" onsubmit="addNewQuestion(event)">
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Pertanyaan:</label>
+                        <textarea id="newQuestion" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" rows="3" placeholder="Masukkan pertanyaan kuis..." required></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">Pilihan Jawaban:</label>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <input type="radio" name="correctAnswer" value="0" id="correct0" required>
+                                <label for="correct0" class="text-sm font-medium text-gray-600">A.</label>
+                                <input type="text" id="option0" class="flex-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Pilihan A" required>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="radio" name="correctAnswer" value="1" id="correct1">
+                                <label for="correct1" class="text-sm font-medium text-gray-600">B.</label>
+                                <input type="text" id="option1" class="flex-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Pilihan B" required>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="radio" name="correctAnswer" value="2" id="correct2">
+                                <label for="correct2" class="text-sm font-medium text-gray-600">C.</label>
+                                <input type="text" id="option2" class="flex-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Pilihan C" required>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <input type="radio" name="correctAnswer" value="3" id="correct3">
+                                <label for="correct3" class="text-sm font-medium text-gray-600">D.</label>
+                                <input type="text" id="option3" class="flex-1 p-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Pilihan D" required>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">* Pilih radio button di sebelah jawaban yang benar</p>
+                    </div>
+                    
+                    <div class="flex justify-between">
+                        <button type="button" onclick="showQuizMode()" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-400 transition-colors">
+                            ← Kembali
+                        </button>
+                        <button type="submit" class="px-6 py-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                            💾 Simpan Soal
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Manage Questions Container -->
+            <div id="manageQuestionsContainer" class="bg-white rounded-xl shadow-lg p-8 hidden">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800">📝 Kelola Soal Kuis</h3>
+                    <button onclick="showQuizMode()" class="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-400 transition-colors">
+                        ← Kembali
+                    </button>
+                </div>
+                
+                <div class="mb-4">
+                    <p class="text-gray-600">Total Soal: <span id="totalQuestions" class="font-semibold text-blue-600">0</span></p>
+                </div>
+                
+                <div id="questionsList" class="space-y-4 max-h-96 overflow-y-auto">
+                    <!-- Questions will be populated here -->
+                </div>
+            </div>
+
+            <!-- Quiz Container -->
+            <div id="quizContainer" class="bg-white rounded-xl shadow-lg p-8">
+                <div id="questionContainer">
+                    <h3 id="questionNumber" class="text-lg font-semibold text-gray-500 mb-2"></h3>
+                    <h4 id="questionText" class="text-xl font-bold text-gray-800 mb-6"></h4>
+                    <div id="optionsContainer" class="space-y-3"></div>
+                </div>
+                
+                <div class="flex justify-between items-center mt-8">
+                    <button id="prevBtn" onclick="previousQuestion()" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-400 transition-colors disabled:opacity-50" disabled>
+                        ← Sebelumnya
+                    </button>
+                    <button id="nextBtn" onclick="nextQuestion()" class="px-6 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors disabled:opacity-50" disabled>
+                        Selanjutnya →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div id="resultsContainer" class="bg-white rounded-xl shadow-lg p-8 hidden">
+                <div class="text-center">
+                    <div id="resultIcon" class="text-6xl mb-4"></div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Kuis Selesai!</h3>
+                    <p id="scoreText" class="text-xl text-gray-600 mb-6"></p>
+                    <div id="resultMessage" class="text-lg mb-6"></div>
+                    <button onclick="restartQuiz()" class="px-8 py-3 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors">
+                        🔄 Ulangi Kuis
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg mb-2">Media Pembelajaran Kewirausahaan</p>
+            <p class="text-gray-400">Untuk Siswa Kelas XI TKJ - Dibuat dengan ❤️</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation
+        function showSection(sectionName) {
+            // Hide all sections
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionName).classList.remove('hidden');
+            document.getElementById(sectionName).classList.add('fade-in');
+            
+            // Update navigation buttons
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('bg-blue-500', 'text-white');
+                btn.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            event.target.classList.remove('bg-gray-200', 'text-gray-700');
+            event.target.classList.add('bg-blue-500', 'text-white');
+        }
+
+        // Detail content for each topic
+        const detailContent = {
+            pengertian: {
+                title: "💡 Pengertian Kewirausahaan",
+                content: `
+                    <h4 class="font-semibold text-lg mb-3">Definisi Kewirausahaan</h4>
+                    <p class="mb-4">Kewirausahaan berasal dari kata "wira" dan "usaha". Wira berarti pejuang, pahlawan, manusia unggul, teladan, berbudi luhur, gagah berani dan berwatak agung. Usaha berarti perbuatan amal, bekerja, berbuat sesuatu.</p>
+                    
+                    <h4 class="font-semibold text-lg mb-3">Menurut Para Ahli:</h4>
+                    <ul class="list-disc list-inside mb-4 space-y-2">
+                        <li><strong>Joseph Schumpeter:</strong> Kewirausahaan adalah kemampuan untuk menciptakan sesuatu yang baru dan berbeda</li>
+                        <li><strong>Peter Drucker:</strong> Kewirausahaan adalah kemampuan untuk menciptakan sesuatu yang baru dan berbeda melalui pemikiran kreatif dan tindakan inovatif</li>
+                        <li><strong>Thomas W. Zimmerer:</strong> Kewirausahaan adalah penerapan kreativitas dan keinovasian untuk memecahkan permasalahan dan upaya memanfaatkan peluang yang dihadapi orang lain setiap hari</li>
+                    </ul>
+                    
+                    <h4 class="font-semibold text-lg mb-3">Tujuan Kewirausahaan:</h4>
+                    <ul class="list-disc list-inside space-y-1">
+                        <li>Menciptakan lapangan kerja</li>
+                        <li>Meningkatkan kesejahteraan masyarakat</li>
+                        <li>Mengembangkan ekonomi nasional</li>
+                        <li>Menciptakan inovasi dan kreativitas</li>
+                    </ul>
+                `
+            },
+            karakteristik: {
+                title: "⭐ Karakteristik Wirausaha",
+                content: `
+                    <h4 class="font-semibold text-lg mb-3">Karakteristik Utama Wirausaha:</h4>
+                    
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h5 class="font-semibold">1. Kreatif dan Inovatif</h5>
+                            <p>Mampu menciptakan ide-ide baru dan mengembangkan solusi unik untuk masalah yang ada.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-500 pl-4">
+                            <h5 class="font-semibold">2. Berani Mengambil Risiko</h5>
+                            <p>Tidak takut menghadapi ketidakpastian dan siap menanggung konsekuensi dari keputusan yang diambil.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h5 class="font-semibold">3. Pantang Menyerah</h5>
+                            <p>Memiliki daya tahan tinggi dan tidak mudah putus asa ketika menghadapi kegagalan.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-red-500 pl-4">
+                            <h5 class="font-semibold">4. Berorientasi pada Tujuan</h5>
+                            <p>Memiliki visi yang jelas dan fokus pada pencapaian target yang telah ditetapkan.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-yellow-500 pl-4">
+                            <h5 class="font-semibold">5. Kepemimpinan</h5>
+                            <p>Mampu memimpin dan menginspirasi orang lain untuk mencapai tujuan bersama.</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-indigo-500 pl-4">
+                            <h5 class="font-semibold">6. Mandiri</h5>
+                            <p>Tidak bergantung pada orang lain dan mampu mengambil keputusan sendiri.</p>
+                        </div>
+                    </div>
+                `
+            },
+            peluang: {
+                title: "🎯 Peluang Usaha",
+                content: `
+                    <h4 class="font-semibold text-lg mb-3">Pengertian Peluang Usaha</h4>
+                    <p class="mb-4">Peluang usaha adalah kesempatan yang dapat dimanfaatkan untuk memulai atau mengembangkan bisnis yang menguntungkan berdasarkan kebutuhan pasar yang belum terpenuhi.</p>
+                    
+                    <h4 class="font-semibold text-lg mb-3">Cara Mengidentifikasi Peluang Usaha:</h4>
+                    <ol class="list-decimal list-inside mb-4 space-y-2">
+                        <li>Observasi lingkungan sekitar</li>
+                        <li>Analisis kebutuhan masyarakat</li>
+                        <li>Riset pasar dan kompetitor</li>
+                        <li>Mengikuti tren dan perkembangan teknologi</li>
+                        <li>Mendengarkan keluhan konsumen</li>
+                    </ol>
+                    
+                    <h4 class="font-semibold text-lg mb-3">Contoh Peluang Usaha untuk Siswa:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <svg width="40" height="40" viewBox="0 0 50 50" class="mr-3">
+                                    <rect x="5" y="10" width="40" height="25" fill="#3b82f6" rx="3"/>
+                                    <rect x="8" y="13" width="34" height="19" fill="#1e40af" rx="2"/>
+                                    <circle cx="25" cy="22" r="3" fill="#60a5fa"/>
+                                    <rect x="15" y="35" width="20" height="3" fill="#6b7280" rx="1"/>
+                                    <rect x="20" y="38" width="10" height="5" fill="#374151" rx="2"/>
+                                </svg>
+                                <h5 class="font-semibold text-blue-800">Bidang Teknologi</h5>
+                            </div>
+                            <ul class="text-sm text-blue-700 space-y-1">
+                                <li>• Jasa pembuatan website</li>
+                                <li>• Aplikasi mobile sederhana</li>
+                                <li>• Jasa desain grafis</li>
+                                <li>• Tutorial online</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <svg width="40" height="40" viewBox="0 0 50 50" class="mr-3">
+                                    <circle cx="25" cy="25" r="20" fill="#10b981"/>
+                                    <path d="M15 25 Q25 15 35 25 Q25 35 15 25" fill="#059669"/>
+                                    <circle cx="20" cy="20" r="3" fill="#34d399"/>
+                                    <circle cx="30" cy="30" r="3" fill="#34d399"/>
+                                    <path d="M20 35 Q25 30 30 35" stroke="#065f46" stroke-width="2" fill="none"/>
+                                </svg>
+                                <h5 class="font-semibold text-green-800">Bidang Kreatif</h5>
+                            </div>
+                            <ul class="text-sm text-green-700 space-y-1">
+                                <li>• Kerajinan tangan</li>
+                                <li>• Produk makanan unik</li>
+                                <li>• Jasa fotografi</li>
+                                <li>• Konten kreator</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            rencana: {
+                title: "📋 Rencana Bisnis",
+                content: `
+                    <h4 class="font-semibold text-lg mb-3">Pengertian Rencana Bisnis</h4>
+                    <p class="mb-4">Rencana bisnis (business plan) adalah dokumen tertulis yang menjelaskan secara rinci bagaimana bisnis akan dijalankan dan dikembangkan untuk mencapai tujuan yang telah ditetapkan.</p>
+                    
+                    <h4 class="font-semibold text-lg mb-3">Komponen Rencana Bisnis:</h4>
+                    
+                    <div class="space-y-3">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-gray-800">1. Executive Summary</h5>
+                            <p class="text-sm text-gray-600 mt-1">Ringkasan singkat tentang bisnis, produk/jasa, target pasar, dan proyeksi keuangan.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-gray-800">2. Deskripsi Bisnis</h5>
+                            <p class="text-sm text-gray-600 mt-1">Penjelasan detail tentang jenis bisnis, visi, misi, dan tujuan perusahaan.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-gray-800">3. Analisis Pasar</h5>
+                            <p class="text-sm text-gray-600 mt-1">Riset tentang target pasar, kompetitor, dan peluang bisnis.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-gray-800">4. Strategi Pemasaran</h5>
+                            <p class="text-sm text-gray-600 mt-1">Rencana untuk mempromosikan dan menjual produk/jasa.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-gray-800">5. Rencana Operasional</h5>
+                            <p class="text-sm text-gray-600 mt-1">Detail tentang proses produksi, lokasi, dan operasional harian.</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-semibold text-gray-800">6. Proyeksi Keuangan</h5>
+                            <p class="text-sm text-gray-600 mt-1">Perkiraan pendapatan, biaya, dan keuntungan selama 3-5 tahun ke depan.</p>
+                        </div>
+                    </div>
+                `
+            },
+            modal: {
+                title: "💰 Modal Usaha",
+                content: `
+                    <h4 class="font-semibold text-lg mb-3">Pengertian Modal Usaha</h4>
+                    <p class="mb-4">Modal usaha adalah dana atau aset yang diperlukan untuk memulai dan menjalankan suatu bisnis atau usaha, termasuk untuk membeli peralatan, bahan baku, dan biaya operasional.</p>
+                    
+                    <h4 class="font-semibold text-lg mb-3">Jenis-jenis Modal Usaha:</h4>
+                    
+                    <div class="space-y-4">
+                        <div class="border border-blue-200 rounded-lg p-4">
+                            <h5 class="font-semibold text-blue-800 mb-2">1. Modal Tetap (Fixed Capital)</h5>
+                            <p class="text-sm mb-2">Modal yang digunakan untuk membeli aset tetap yang tahan lama.</p>
+                            <p class="text-xs text-blue-600">Contoh: Tanah, bangunan, mesin, kendaraan, peralatan</p>
+                        </div>
+                        
+                        <div class="border border-green-200 rounded-lg p-4">
+                            <h5 class="font-semibold text-green-800 mb-2">2. Modal Kerja (Working Capital)</h5>
+                            <p class="text-sm mb-2">Modal yang digunakan untuk operasional sehari-hari.</p>
+                            <p class="text-xs text-green-600">Contoh: Bahan baku, gaji karyawan, listrik, air, telepon</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="font-semibold text-lg mb-3 mt-6">Sumber Modal Usaha:</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-purple-200 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <svg width="30" height="30" viewBox="0 0 40 40" class="mr-2">
+                                    <circle cx="20" cy="20" r="18" fill="#8b5cf6"/>
+                                    <path d="M15 20 L18 23 L25 16" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                    <circle cx="12" cy="12" r="3" fill="#fbbf24"/>
+                                    <text x="12" y="15" text-anchor="middle" fill="white" font-size="4">$</text>
+                                </svg>
+                                <h5 class="font-semibold text-purple-800">Modal Sendiri:</h5>
+                            </div>
+                            <ul class="text-sm space-y-1">
+                                <li>• Tabungan pribadi</li>
+                                <li>• Penjualan aset</li>
+                                <li>• Dana dari keluarga</li>
+                                <li>• Keuntungan bisnis sebelumnya</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="border border-orange-200 rounded-lg p-4">
+                            <div class="flex items-center mb-3">
+                                <svg width="30" height="30" viewBox="0 0 40 40" class="mr-2">
+                                    <rect x="5" y="10" width="30" height="20" fill="#f97316" rx="3"/>
+                                    <rect x="8" y="13" width="24" height="14" fill="#ea580c" rx="2"/>
+                                    <text x="20" y="22" text-anchor="middle" fill="white" font-size="8" font-weight="bold">BANK</text>
+                                    <circle cx="30" cy="8" r="4" fill="#fbbf24"/>
+                                    <text x="30" y="10" text-anchor="middle" fill="white" font-size="4">$</text>
+                                </svg>
+                                <h5 class="font-semibold text-orange-800">Modal Pinjaman:</h5>
+                            </div>
+                            <ul class="text-sm space-y-1">
+                                <li>• Kredit bank</li>
+                                <li>• Pinjaman koperasi</li>
+                                <li>• Investor/venture capital</li>
+                                <li>• Crowdfunding</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-4">
+                        <h5 class="font-semibold text-yellow-800 mb-2">💡 Tips Mengelola Modal:</h5>
+                        <ul class="text-sm text-yellow-700 space-y-1">
+                            <li>• Buat anggaran yang detail</li>
+                            <li>• Pisahkan keuangan pribadi dan bisnis</li>
+                            <li>• Catat semua pemasukan dan pengeluaran</li>
+                            <li>• Sisihkan dana untuk cadangan</li>
+                        </ul>
+                    </div>
+                `
+            },
+            pemasaran: {
+                title: "📈 Strategi Pemasaran",
+                content: `
+                    <h4 class="font-semibold text-lg mb-3">Pengertian Strategi Pemasaran</h4>
+                    <p class="mb-4">Strategi pemasaran adalah rencana jangka panjang untuk mempromosikan dan menjual produk atau jasa kepada target konsumen dengan tujuan mencapai keunggulan kompetitif dan meningkatkan penjualan.</p>
+                    
+                    <h4 class="font-semibold text-lg mb-3">Marketing Mix (4P):</h4>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                            <h5 class="font-semibold text-red-800 mb-2">Product (Produk)</h5>
+                            <p class="text-sm text-red-700">Barang atau jasa yang ditawarkan kepada konsumen, termasuk kualitas, fitur, dan manfaatnya.</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <h5 class="font-semibold text-blue-800 mb-2">Price (Harga)</h5>
+                            <p class="text-sm text-blue-700">Nilai yang harus dibayar konsumen untuk mendapatkan produk, termasuk strategi penetapan harga.</p>
+                        </div>
+                        
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-4">
+                            <h5 class="font-semibold text-green-800 mb-2">Place (Tempat)</h5>
+                            <p class="text-sm text-green-700">Lokasi dan saluran distribusi untuk menjangkau konsumen target.</p>
+                        </div>
+                        
+                        <div class="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                            <h5 class="font-semibold text-purple-800 mb-2">Promotion (Promosi)</h5>
+                            <p class="text-sm text-purple-700">Aktivitas komunikasi untuk memperkenalkan dan mempromosikan produk kepada konsumen.</p>
+                        </div>
+                    </div>
+                    
+                    <h4 class="font-semibold text-lg mb-3">Strategi Pemasaran Digital:</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-start space-x-3 bg-pink-50 p-3 rounded-lg">
+                            <svg width="40" height="40" viewBox="0 0 50 50" class="flex-shrink-0">
+                                <rect x="10" y="5" width="30" height="40" fill="#ec4899" rx="8"/>
+                                <rect x="13" y="8" width="24" height="34" fill="#be185d" rx="5"/>
+                                <circle cx="25" cy="15" r="3" fill="#f9a8d4"/>
+                                <rect x="18" y="22" width="14" height="2" fill="#f9a8d4" rx="1"/>
+                                <rect x="20" y="26" width="10" height="2" fill="#f9a8d4" rx="1"/>
+                                <circle cx="20" cy="35" r="2" fill="#fbbf24"/>
+                                <circle cx="30" cy="35" r="2" fill="#10b981"/>
+                            </svg>
+                            <div>
+                                <h5 class="font-semibold">Media Sosial</h5>
+                                <p class="text-sm text-gray-600">Instagram, TikTok, Facebook, Twitter untuk menjangkau target pasar yang lebih luas.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3 bg-blue-50 p-3 rounded-lg">
+                            <svg width="40" height="40" viewBox="0 0 50 50" class="flex-shrink-0">
+                                <circle cx="25" cy="25" r="20" fill="#3b82f6"/>
+                                <circle cx="25" cy="25" r="15" fill="#1e40af"/>
+                                <path d="M15 20 Q25 15 35 20 Q35 30 25 35 Q15 30 15 20" fill="#60a5fa"/>
+                                <circle cx="20" cy="22" r="2" fill="white"/>
+                                <circle cx="30" cy="22" r="2" fill="white"/>
+                                <path d="M20 28 Q25 32 30 28" stroke="white" stroke-width="2" fill="none"/>
+                            </svg>
+                            <div>
+                                <h5 class="font-semibold">Website & E-commerce</h5>
+                                <p class="text-sm text-gray-600">Platform online untuk menampilkan produk dan memudahkan transaksi.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3 bg-green-50 p-3 rounded-lg">
+                            <svg width="40" height="40" viewBox="0 0 50 50" class="flex-shrink-0">
+                                <rect x="8" y="15" width="34" height="20" fill="#10b981" rx="3"/>
+                                <path d="M8 18 L25 28 L42 18" stroke="#059669" stroke-width="2" fill="none"/>
+                                <circle cx="35" cy="10" r="5" fill="#fbbf24"/>
+                                <text x="35" y="13" text-anchor="middle" fill="white" font-size="6">@</text>
+                            </svg>
+                            <div>
+                                <h5 class="font-semibold">Email Marketing</h5>
+                                <p class="text-sm text-gray-600">Komunikasi langsung dengan pelanggan melalui newsletter dan promosi.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-3 bg-purple-50 p-3 rounded-lg">
+                            <svg width="40" height="40" viewBox="0 0 50 50" class="flex-shrink-0">
+                                <rect x="10" y="10" width="30" height="25" fill="#8b5cf6" rx="3"/>
+                                <rect x="13" y="13" width="24" height="19" fill="#7c3aed" rx="2"/>
+                                <circle cx="18" cy="18" r="2" fill="#c4b5fd"/>
+                                <rect x="22" y="17" width="8" height="2" fill="#c4b5fd" rx="1"/>
+                                <rect x="15" y="22" width="18" height="1" fill="#c4b5fd" rx="0.5"/>
+                                <rect x="15" y="25" width="15" height="1" fill="#c4b5fd" rx="0.5"/>
+                                <circle cx="35" cy="35" r="8" fill="#ef4444"/>
+                                <path d="M30 35 L33 38 L40 30" stroke="white" stroke-width="2" fill="none"/>
+                            </svg>
+                            <div>
+                                <h5 class="font-semibold">Content Marketing</h5>
+                                <p class="text-sm text-gray-600">Membuat konten yang menarik dan bermanfaat untuk menarik perhatian konsumen.</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        function showDetail(topic) {
+            const modal = document.getElementById('detailModal');
+            const title = document.getElementById('detailTitle');
+            const content = document.getElementById('detailContent');
+            
+            title.textContent = detailContent[topic].title;
+            content.innerHTML = detailContent[topic].content;
+            
+            modal.classList.remove('hidden');
+        }
+
+        function closeDetail() {
+            document.getElementById('detailModal').classList.add('hidden');
+        }
+
+        // Quiz Data - Load from localStorage or use default
+        let quizData = JSON.parse(localStorage.getItem('quizData')) || [
+            {
+                question: "Apa pengertian kewirausahaan menurut Joseph Schumpeter?",
+                options: [
+                    "Kemampuan untuk menciptakan sesuatu yang baru dan berbeda",
+                    "Proses mengelola bisnis yang sudah ada",
+                    "Cara untuk mendapatkan keuntungan maksimal",
+                    "Metode untuk mengurangi risiko bisnis"
+                ],
+                correct: 0
+            },
+            {
+                question: "Manakah yang BUKAN termasuk karakteristik wirausaha?",
+                options: [
+                    "Kreatif dan inovatif",
+                    "Berani mengambil risiko",
+                    "Selalu menghindari perubahan",
+                    "Pantang menyerah"
+                ],
+                correct: 2
+            },
+            {
+                question: "Apa yang dimaksud dengan peluang usaha?",
+                options: [
+                    "Kesempatan untuk bekerja di perusahaan besar",
+                    "Kesempatan yang dapat dimanfaatkan untuk memulai bisnis yang menguntungkan",
+                    "Cara untuk mendapatkan modal usaha",
+                    "Strategi untuk mengalahkan kompetitor"
+                ],
+                correct: 1
+            },
+            {
+                question: "Komponen apa yang TIDAK termasuk dalam rencana bisnis?",
+                options: [
+                    "Executive Summary",
+                    "Analisis Pasar",
+                    "Daftar Teman Pribadi",
+                    "Proyeksi Keuangan"
+                ],
+                correct: 2
+            },
+            {
+                question: "Modal yang digunakan untuk membeli aset tetap disebut:",
+                options: [
+                    "Modal Kerja",
+                    "Modal Tetap",
+                    "Modal Pinjaman",
+                    "Modal Sendiri"
+                ],
+                correct: 1
+            },
+            {
+                question: "Dalam Marketing Mix, 4P terdiri dari Product, Price, Place, dan:",
+                options: [
+                    "People",
+                    "Process",
+                    "Promotion",
+                    "Profit"
+                ],
+                correct: 2
+            },
+            {
+                question: "Manakah yang termasuk sumber modal sendiri?",
+                options: [
+                    "Kredit bank",
+                    "Tabungan pribadi",
+                    "Pinjaman koperasi",
+                    "Investor"
+                ],
+                correct: 1
+            },
+            {
+                question: "Tujuan utama kewirausahaan adalah:",
+                options: [
+                    "Menjadi terkenal",
+                    "Menciptakan lapangan kerja dan meningkatkan kesejahteraan",
+                    "Mengalahkan semua kompetitor",
+                    "Mendapatkan keuntungan sebesar-besarnya"
+                ],
+                correct: 1
+            },
+            {
+                question: "Cara mengidentifikasi peluang usaha yang tepat adalah:",
+                options: [
+                    "Meniru bisnis yang sudah ada",
+                    "Observasi lingkungan dan analisis kebutuhan masyarakat",
+                    "Memilih bisnis yang paling mudah",
+                    "Mengikuti tren tanpa riset"
+                ],
+                correct: 1
+            },
+            {
+                question: "Strategi pemasaran digital yang paling efektif untuk generasi muda adalah:",
+                options: [
+                    "Iklan di koran",
+                    "Brosur dan pamflet",
+                    "Media sosial dan content marketing",
+                    "Iklan radio"
+                ],
+                correct: 2
+            }
+        ];
+
+        // Quiz Variables
+        let currentQuestion = 0;
+        let userAnswers = [];
+        let score = 0;
+
+        function initQuiz() {
+            if (quizData.length === 0) {
+                document.getElementById('quizContainer').innerHTML = `
+                    <div class="text-center py-12">
+                        <div class="text-6xl mb-4">📝</div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Belum Ada Soal Kuis</h3>
+                        <p class="text-gray-600 mb-6">Silakan tambah soal terlebih dahulu untuk memulai kuis.</p>
+                        <button onclick="showAddQuestion()" class="px-6 py-2 bg-green-500 text-white rounded-lg font-semibold hover:bg-green-600 transition-colors">
+                            ➕ Tambah Soal Pertama
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            currentQuestion = 0;
+            userAnswers = [];
+            score = 0;
+            document.getElementById('quizContainer').classList.remove('hidden');
+            document.getElementById('resultsContainer').classList.add('hidden');
+            
+            // Reset quiz container content
+            document.getElementById('quizContainer').innerHTML = `
+                <div id="questionContainer">
+                    <h3 id="questionNumber" class="text-lg font-semibold text-gray-500 mb-2"></h3>
+                    <h4 id="questionText" class="text-xl font-bold text-gray-800 mb-6"></h4>
+                    <div id="optionsContainer" class="space-y-3"></div>
+                </div>
+                
+                <div class="flex justify-between items-center mt-8">
+                    <button id="prevBtn" onclick="previousQuestion()" class="px-6 py-2 bg-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-400 transition-colors disabled:opacity-50" disabled>
+                        ← Sebelumnya
+                    </button>
+                    <button id="nextBtn" onclick="nextQuestion()" class="px-6 py-2 bg-blue-500 text-white rounded-lg font-semibold hover:bg-blue-600 transition-colors disabled:opacity-50" disabled>
+                        Selanjutnya →
+                    </button>
+                </div>
+            `;
+            
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const question = quizData[currentQuestion];
+            
+            document.getElementById('questionNumber').textContent = `Pertanyaan ${currentQuestion + 1} dari ${quizData.length}`;
+            document.getElementById('questionText').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'quiz-option p-4 border border-gray-200 rounded-lg cursor-pointer';
+                optionDiv.innerHTML = `
+                    <div class="flex items-center">
+                        <span class="w-6 h-6 rounded-full border-2 border-gray-300 mr-3 flex items-center justify-center text-sm font-semibold">
+                            ${String.fromCharCode(65 + index)}
+                        </span>
+                        <span>${option}</span>
+                    </div>
+                `;
+                
+                optionDiv.onclick = () => selectOption(index, optionDiv);
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Update progress
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+            document.getElementById('progressText').textContent = `${currentQuestion + 1}/${quizData.length}`;
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentQuestion === 0;
+            document.getElementById('nextBtn').disabled = userAnswers[currentQuestion] === undefined;
+            
+            if (currentQuestion === quizData.length - 1) {
+                document.getElementById('nextBtn').textContent = 'Selesai 🏁';
+            } else {
+                document.getElementById('nextBtn').textContent = 'Selanjutnya →';
+            }
+        }
+
+        function selectOption(optionIndex, optionElement) {
+            // Remove previous selection
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selection to clicked option
+            optionElement.classList.add('selected');
+            
+            // Store answer
+            userAnswers[currentQuestion] = optionIndex;
+            
+            // Enable next button
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        function finishQuiz() {
+            // Calculate score
+            score = 0;
+            for (let i = 0; i < quizData.length; i++) {
+                if (userAnswers[i] === quizData[i].correct) {
+                    score++;
+                }
+            }
+            
+            // Show results
+            document.getElementById('quizContainer').classList.add('hidden');
+            document.getElementById('resultsContainer').classList.remove('hidden');
+            
+            const percentage = (score / quizData.length) * 100;
+            document.getElementById('scoreText').textContent = `Skor Anda: ${score}/${quizData.length} (${percentage.toFixed(0)}%)`;
+            
+            let resultIcon, resultMessage;
+            if (percentage >= 80) {
+                resultIcon = '🏆';
+                resultMessage = '<p class="text-green-600 font-semibold">Luar biasa! Anda sangat memahami materi kewirausahaan.</p>';
+            } else if (percentage >= 60) {
+                resultIcon = '👍';
+                resultMessage = '<p class="text-blue-600 font-semibold">Bagus! Pemahaman Anda tentang kewirausahaan cukup baik.</p>';
+            } else {
+                resultIcon = '📚';
+                resultMessage = '<p class="text-orange-600 font-semibold">Perlu belajar lagi. Silakan pelajari kembali materi kewirausahaan.</p>';
+            }
+            
+            document.getElementById('resultIcon').textContent = resultIcon;
+            document.getElementById('resultMessage').innerHTML = resultMessage;
+        }
+
+        function restartQuiz() {
+            initQuiz();
+        }
+
+        // Quiz Management Functions
+        function showQuizMode() {
+            hideAllQuizContainers();
+            document.getElementById('quizContainer').classList.remove('hidden');
+            document.getElementById('resultsContainer').classList.add('hidden');
+            initQuiz();
+        }
+
+        function showAddQuestion() {
+            hideAllQuizContainers();
+            document.getElementById('addQuestionContainer').classList.remove('hidden');
+            clearAddQuestionForm();
+        }
+
+        function showManageQuestions() {
+            hideAllQuizContainers();
+            document.getElementById('manageQuestionsContainer').classList.remove('hidden');
+            displayQuestionsList();
+        }
+
+        function hideAllQuizContainers() {
+            document.getElementById('quizContainer').classList.add('hidden');
+            document.getElementById('addQuestionContainer').classList.add('hidden');
+            document.getElementById('manageQuestionsContainer').classList.add('hidden');
+            document.getElementById('resultsContainer').classList.add('hidden');
+        }
+
+        function clearAddQuestionForm() {
+            document.getElementById('addQuestionForm').reset();
+            document.getElementById('newQuestion').value = '';
+            document.getElementById('option0').value = '';
+            document.getElementById('option1').value = '';
+            document.getElementById('option2').value = '';
+            document.getElementById('option3').value = '';
+        }
+
+        function addNewQuestion(event) {
+            event.preventDefault();
+            
+            const question = document.getElementById('newQuestion').value.trim();
+            const options = [
+                document.getElementById('option0').value.trim(),
+                document.getElementById('option1').value.trim(),
+                document.getElementById('option2').value.trim(),
+                document.getElementById('option3').value.trim()
+            ];
+            
+            const correctAnswer = parseInt(document.querySelector('input[name="correctAnswer"]:checked').value);
+            
+            // Validate inputs
+            if (!question || options.some(opt => !opt)) {
+                alert('Mohon lengkapi semua field!');
+                return;
+            }
+            
+            // Add new question to quizData
+            const newQuestion = {
+                question: question,
+                options: options,
+                correct: correctAnswer
+            };
+            
+            quizData.push(newQuestion);
+            
+            // Save to localStorage
+            localStorage.setItem('quizData', JSON.stringify(quizData));
+            
+            // Show success message
+            alert('✅ Soal berhasil ditambahkan!');
+            
+            // Clear form and go back to quiz mode
+            clearAddQuestionForm();
+            showQuizMode();
+        }
+
+        function displayQuestionsList() {
+            const questionsList = document.getElementById('questionsList');
+            const totalQuestions = document.getElementById('totalQuestions');
+            
+            totalQuestions.textContent = quizData.length;
+            questionsList.innerHTML = '';
+            
+            if (quizData.length === 0) {
+                questionsList.innerHTML = '<p class="text-gray-500 text-center py-8">Belum ada soal. Silakan tambah soal baru.</p>';
+                return;
+            }
+            
+            quizData.forEach((question, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'border border-gray-200 rounded-lg p-4';
+                
+                const correctOptionLetter = String.fromCharCode(65 + question.correct);
+                const correctOptionText = question.options[question.correct];
+                
+                questionDiv.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <h4 class="font-semibold text-gray-800 flex-1 mr-4">
+                            ${index + 1}. ${question.question}
+                        </h4>
+                        <button onclick="deleteQuestion(${index})" class="text-red-500 hover:text-red-700 font-semibold text-sm px-3 py-1 border border-red-300 rounded hover:bg-red-50 transition-colors">
+                            🗑️ Hapus
+                        </button>
+                    </div>
+                    <div class="text-sm text-gray-600 mb-2">
+                        <strong>Pilihan:</strong>
+                    </div>
+                    <ul class="text-sm text-gray-600 mb-3 space-y-1">
+                        ${question.options.map((option, optIndex) => 
+                            `<li class="${optIndex === question.correct ? 'text-green-600 font-semibold' : ''}">
+                                ${String.fromCharCode(65 + optIndex)}. ${option} ${optIndex === question.correct ? '✓' : ''}
+                            </li>`
+                        ).join('')}
+                    </ul>
+                    <div class="text-xs text-green-600 font-semibold">
+                        Jawaban Benar: ${correctOptionLetter}. ${correctOptionText}
+                    </div>
+                `;
+                
+                questionsList.appendChild(questionDiv);
+            });
+        }
+
+        function deleteQuestion(index) {
+            if (confirm('Apakah Anda yakin ingin menghapus soal ini?')) {
+                quizData.splice(index, 1);
+                localStorage.setItem('quizData', JSON.stringify(quizData));
+                displayQuestionsList();
+                
+                // Show success message
+                alert('🗑️ Soal berhasil dihapus!');
+            }
+        }
+
+        // Initialize quiz when kuis section is shown
+        document.addEventListener('DOMContentLoaded', function() {
+            showQuizMode();
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('detailModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeDetail();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9891660865abfd89',t:'MTc1OTU0NjUwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
